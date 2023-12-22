@@ -4,12 +4,10 @@
   "private": true,
   "author": "Josh Comeau <me@joshwcomeau.com>",
   "dependencies": {
-    "eslint": "^8.49.0",
     "eslint-config-react-app": "^7.0.1",
     "new-component": "5.0.2",
     "parcel": "2.9.2",
     "parcel-reporter-static-files-copy": "1.5.2",
-    "prettier": "2.6.2",
     "process": "0.11.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -25,5 +23,10 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "staticFiles": {
     "staticPath": "assets"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1"
   }
 }
