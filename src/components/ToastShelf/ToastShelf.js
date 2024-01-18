@@ -3,6 +3,7 @@ import React from 'react';
 import Toast from '../Toast';
 import styles from './ToastShelf.module.css';
 import {AlertOctagon, AlertTriangle, CheckCircle, Info} from "react-feather";
+import {ToastContext} from "../ToastProvider";
 
 const ICONS_BY_VARIANT = {
 	notice: Info,
@@ -11,13 +12,14 @@ const ICONS_BY_VARIANT = {
 	error: AlertOctagon,
 };
 
-function ToastShelf({toasts, dismissToast}) {
+function ToastShelf() {
+	const {toasts} = React.useContext(ToastContext);
+
 	return (
 		<ol className={styles.wrapper}>
-			{toasts.map(({variant, message, key}) =>
-				<li className={styles.toastWrapper} key={key}>
-					<Toast Icon={ICONS_BY_VARIANT[variant]} variant={variant} key={key}
-					       dismissToast={() => dismissToast(key)}>{message}</Toast>
+			{toasts.map(({variant, message, id}) =>
+				<li className={styles.toastWrapper} key={id}>
+					<Toast Icon={ICONS_BY_VARIANT[variant]} variant={variant} id={id}>{message}</Toast>
 				</li>)}
 		</ol>
 	);
