@@ -6,7 +6,11 @@ export const ToastContext = React.createContext(null);
 function ToastProvider({children}) {
 	const [toasts, setToasts] = React.useState([]);
 
-useEscapeKey(() => setToasts([]))
+	const handleEscape = React.useCallback(() => {
+		setToasts([]);
+	}, []);
+
+	useEscapeKey(handleEscape);
 
 	function createToast(message, variant){
 		setToasts([...toasts, {message, variant, id: crypto.randomUUID()}]);
